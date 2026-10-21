@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El Raminel — Ristorante pizzeria a Rovereto</title>
 <meta name="description" content="Ristorante pizzeria in Corso Bettini 15/A a Rovereto, a cinque minuti dal Mart. Pizza in quattro impasti, primi fatti a mano, pesce e dolci della casa. Chiuso il lunedì.">
-<meta name="theme-color" content="#1b211e">
+<meta name="theme-color" content="#eeeeea">
 <meta property="og:title" content="El Raminel — Ristorante pizzeria a Rovereto">
 <meta property="og:description" content="Pizza in quattro impasti, primi fatti a mano e pesce, in Corso Bettini a cinque minuti dal Mart.">
 <meta property="og:image" content="img/og.jpg">
@@ -13,8 +13,8 @@
 <link rel="icon" href="img/logo/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..500,100,0;1,9..144,300..500,100,0&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400..500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..500,100,0;1,9..144,300..500,100,0&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-band.webp" fetchpriority="high">
 <link rel="stylesheet" href="css/style.css">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
@@ -61,27 +61,24 @@
 
   <!-- Hero: one photograph, the name set in the house serif -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero__photo">
-      <picture>
-        <source media="(max-width: 700px)" srcset="img/hero-tall.webp">
-        <img src="img/hero.webp" width="2000" height="1333" alt="Una pizza sul tagliere di legno, accanto a un calice di vino rosso e a un mucchio di farina" fetchpriority="high">
-      </picture>
-    </div>
-    <div class="hero__lockup">
-      <svg class="hero__pot" aria-hidden="true"><use href="#pot"/></svg>
-      <h1 id="hero-title" class="hero__title">
-        <span class="hero__name">El Raminel</span>
-        <span class="hero__kind">Ristorante pizzeria a Rovereto</span>
-      </h1>
+    <h1 id="hero-title" class="hero__title">
+      <span class="hero__name">El Raminel</span>
+      <span class="hero__kind">Ristorante pizzeria a Rovereto</span>
+    </h1>
+    <div class="hero__row">
       <p class="hero__lead">Pizza in quattro impasti e cucina di casa, in Corso Bettini a cinque minuti dal Mart.</p>
-    </div>
-    <div class="hero__foot">
-      <div class="hero__buttons">
-        <a class="button button--light" href="#prenota">Prenota un tavolo</a>
-        <a class="button button--line-light" href="#menu">Sfoglia il menu</a>
+      <div class="hero__act">
+        <a class="button" href="#prenota">Prenota un tavolo <span class="button__arrow" aria-hidden="true">→</span></a>
+        <a class="link" href="#menu">Sfoglia il menu</a>
+        <p class="status" data-status><span class="status__dot" aria-hidden="true"></span><span data-status-text>Martedì–domenica, 7:30–14:30 e 18:00–23:00</span></p>
       </div>
-      <p class="status" data-status><span class="status__dot" aria-hidden="true"></span><span data-status-text>Martedì–domenica, 7:30–14:30 e 18:00–23:00</span></p>
     </div>
+    <figure class="hero__band">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-band-m.webp">
+        <img src="img/hero-band.webp" width="2000" height="1125" alt="Una pizza con burrata e rucola sul tagliere, due calici di vino rosso sul tavolo di legno" fetchpriority="high">
+      </picture>
+    </figure>
   </section>
 
   <!-- Intro: name, room, facts -->
@@ -161,52 +158,57 @@
 
     <article class="dish" style="--field:var(--pine);--field-ink:var(--paper);--field-soft:#c3cbc5">
       <div class="dish__text">
-        <p class="dish__kind">La pizza della casa</p>
         <h3 class="dish__name">La Bettini</h3>
-        <p>Pomodorini spaccati, fior di latte, basilico e olio a crudo. Semplice, alta sul bordo, con il nome della strada. Da fare con il lievito madre.</p>
-        <p class="dish__price">11,00 €</p>
+        <div class="dish__foot">
+          <p>Pomodorini spaccati, fior di latte, basilico e olio a crudo. Semplice, alta sul bordo, con il nome della strada. Da fare con il lievito madre.</p>
+          <p class="dish__price">11,00 €</p>
+        </div>
       </div>
-      <figure class="dish__frame"><div class="arch"><img src="img/piatti/bettini.webp" width="1000" height="1250" loading="lazy" alt="Pizza con pomodorini, fior di latte e foglie di basilico, vista dall'alto su un piano scuro infarinato"></div></figure>
+      <figure class="dish__photo"><img src="img/piatti/bettini.webp" width="1000" height="1250" loading="lazy" alt="Pizza con pomodorini, fior di latte e foglie di basilico, vista dall'alto su un piano scuro infarinato"></figure>
     </article>
 
     <article class="dish dish--flip" style="--field:var(--sage);--field-ink:var(--ink);--field-soft:#2f3a33">
       <div class="dish__text">
-        <p class="dish__kind">Tra le speciali</p>
         <h3 class="dish__name">Crudo e cipolla rossa</h3>
-        <p>Pomodoro, mozzarella, prosciutto crudo messo in uscita e cipolla rossa sottile, appena passata in forno. Buona sull'integrale, che regge il sapore.</p>
-        <p class="dish__price">11,50 €</p>
+        <div class="dish__foot">
+          <p>Pomodoro, mozzarella, prosciutto crudo messo in uscita e cipolla rossa sottile, appena passata in forno. Buona sull'integrale, che regge il sapore.</p>
+          <p class="dish__price">11,50 €</p>
+        </div>
       </div>
-      <figure class="dish__frame"><div class="arch"><img src="img/piatti/crudo.webp" width="1000" height="1250" loading="lazy" alt="Pizza con prosciutto crudo, mozzarella e cipolla rossa nel piatto in ceramica"></div></figure>
+      <figure class="dish__photo"><img src="img/piatti/crudo.webp" width="1000" height="1250" loading="lazy" alt="Pizza con prosciutto crudo, mozzarella e cipolla rossa nel piatto in ceramica"></figure>
     </article>
 
     <article class="dish" style="--field:var(--stone);--field-ink:var(--ink);--field-soft:#3d463f">
       <div class="dish__text">
-        <p class="dish__kind">Primo</p>
         <h3 class="dish__name">Risotto al Trentingrana</h3>
-        <p>Carnaroli mantecato con Trentingrana e burro di malga, erba cipollina e una grattata di limone. Venti minuti, fatto al momento.</p>
-        <p class="dish__price">13,00 €</p>
+        <div class="dish__foot">
+          <p>Carnaroli mantecato con Trentingrana e burro di malga, erba cipollina e una grattata di limone. Venti minuti, fatto al momento.</p>
+          <p class="dish__price">13,00 €</p>
+        </div>
       </div>
-      <figure class="dish__frame"><div class="arch"><img src="img/piatti/risotto.webp" width="1000" height="1250" loading="lazy" alt="Risotto bianco con erba cipollina in un piatto fondo bianco"></div></figure>
+      <figure class="dish__photo"><img src="img/piatti/risotto.webp" width="1000" height="1250" loading="lazy" alt="Risotto bianco con erba cipollina in un piatto fondo bianco"></figure>
     </article>
 
     <article class="dish dish--flip" style="--field:var(--paper-2);--field-ink:var(--ink);--field-soft:#3d463f">
       <div class="dish__text">
-        <p class="dish__kind">Secondo di pesce</p>
         <h3 class="dish__name">Salmone e spinaci</h3>
-        <p>Filetto scottato dalla parte della pelle, spinaci saltati, pomodorini e una crema leggera al vino bianco. Con un Müller Thurgau della Val di Cembra.</p>
-        <p class="dish__price">18,00 €</p>
+        <div class="dish__foot">
+          <p>Filetto scottato dalla parte della pelle, spinaci saltati, pomodorini e una crema leggera al vino bianco. Con un Müller Thurgau della Val di Cembra.</p>
+          <p class="dish__price">18,00 €</p>
+        </div>
       </div>
-      <figure class="dish__frame"><div class="arch"><img src="img/piatti/salmone.webp" width="1000" height="1250" loading="lazy" alt="Filetto di salmone scottato su spinaci e pomodorini in salsa cremosa"></div></figure>
+      <figure class="dish__photo"><img src="img/piatti/salmone.webp" width="1000" height="1250" loading="lazy" alt="Filetto di salmone scottato su spinaci e pomodorini in salsa cremosa"></figure>
     </article>
 
     <article class="dish" style="--field:var(--copper-field);--field-ink:var(--paper);--field-soft:#ead9cc">
       <div class="dish__text">
-        <p class="dish__kind">Dolce della casa</p>
         <h3 class="dish__name">Panna cotta ai frutti di bosco</h3>
-        <p>Fatta in casa ogni mattina, con lamponi, mirtilli e more cotti appena. Il modo più semplice di chiudere una pizza.</p>
-        <p class="dish__price">6,00 €</p>
+        <div class="dish__foot">
+          <p>Fatta in casa ogni mattina, con lamponi, mirtilli e more cotti appena. Il modo più semplice di chiudere una pizza.</p>
+          <p class="dish__price">6,00 €</p>
+        </div>
       </div>
-      <figure class="dish__frame"><div class="arch"><img src="img/piatti/panna-cotta.webp" width="1000" height="1250" loading="lazy" alt="Panna cotta con frutti di bosco in una ciotola turchese"></div></figure>
+      <figure class="dish__photo"><img src="img/piatti/panna-cotta.webp" width="1000" height="1250" loading="lazy" alt="Panna cotta con frutti di bosco in una ciotola turchese"></figure>
     </article>
   </section>
 
@@ -218,13 +220,13 @@
     </div>
 
     <div class="sheet" data-reveal>
-      <div class="tabs" role="tablist" aria-label="Sezioni del menu" data-tabs>
-        <button role="tab" id="t-pizze" aria-controls="p-pizze" aria-selected="true">Pizze</button>
-        <button role="tab" id="t-cucina" aria-controls="p-cucina" aria-selected="false" tabindex="-1">Cucina</button>
-        <button role="tab" id="t-dolci" aria-controls="p-dolci" aria-selected="false" tabindex="-1">Dolci</button>
-        <button role="tab" id="t-bar" aria-controls="p-bar" aria-selected="false" tabindex="-1">Bar</button>
-      </div>
       <div class="sheet__inner">
+      <div class="tabs" role="tablist" aria-label="Sezioni del menu" data-tabs>
+        <button role="tab" id="t-pizze" aria-controls="p-pizze" aria-selected="true">Pizze<span class="tabs__count">18</span></button>
+        <button role="tab" id="t-cucina" aria-controls="p-cucina" aria-selected="false" tabindex="-1">Cucina<span class="tabs__count">16</span></button>
+        <button role="tab" id="t-dolci" aria-controls="p-dolci" aria-selected="false" tabindex="-1">Dolci<span class="tabs__count">5</span></button>
+        <button role="tab" id="t-bar" aria-controls="p-bar" aria-selected="false" tabindex="-1">Bar<span class="tabs__count">12</span></button>
+      </div>
 
         <div class="panel" role="tabpanel" id="p-pizze" aria-labelledby="t-pizze" tabindex="0">
           <div class="group">
@@ -390,7 +392,7 @@
         <textarea id="f-note" name="note" rows="2" placeholder="Un seggiolone, un'allergia, un compleanno"></textarea>
       </div>
       <p class="book__msg" data-msg role="status"></p>
-      <button class="button button--ink button--wide" type="submit">Invia la richiesta</button>
+      <button class="button button--wide" type="submit">Invia la richiesta <span class="button__arrow" aria-hidden="true">→</span></button>
     </form>
   </section>
 
@@ -404,8 +406,8 @@
       <p class="where__addr">Corso Bettini 15/A<br>38068 Rovereto (TN)</p>
       <p>Nel centro storico, sulla via dei palazzi. Il Mart è in fondo al corso, cinque minuti a piedi.</p>
       <div class="where__links">
-        <a class="button button--ink" href="https://www.google.com/maps/search/?api=1&query=El+Raminel+Corso+Bettini+15A+Rovereto" target="_blank" rel="noopener">Indicazioni</a>
-        <a class="button button--line" href="tel:+390464010521">Chiama</a>
+        <a class="button" href="https://www.google.com/maps/search/?api=1&query=El+Raminel+Corso+Bettini+15A+Rovereto" target="_blank" rel="noopener">Indicazioni <span class="button__arrow" aria-hidden="true">→</span></a>
+        <a class="link" href="tel:+390464010521">Chiama 0464 010521</a>
       </div>
     </div>
     <figure class="where__mart">
@@ -436,7 +438,7 @@
       </svg>
       <p class="foot__name" aria-hidden="true">El Raminel</p>
     </div>
-    <p class="foot__credits">Foto di piatti, impasto e copertina da Unsplash: Alessandro D'Antonio, Inna Gurina, Yulia Khlebnikova, Julien Pianetti, Jennifer Burk, Alexey Khaneft, Arturrro. Corso Bettini: Lungoleno, CC BY-SA 4.0. Mart: LapoLuchini, CC BY-SA 3.0, via Wikimedia Commons.</p>
+    <p class="foot__credits">Foto di piatti, impasto e copertina da Unsplash: Alexander Pogorelsky, Inna Gurina, Yulia Khlebnikova, Julien Pianetti, Jennifer Burk, Alexey Khaneft, Arturrro. Corso Bettini: Lungoleno, CC BY-SA 4.0. Mart: LapoLuchini, CC BY-SA 3.0, via Wikimedia Commons.</p>
   </div>
 </footer>
 

@@ -4,7 +4,7 @@ Le foto dei piatti sono illustrative: vanno sostituite con foto vere dei piatti 
 
 | File | Soggetto | Autore | Licenza | Fonte |
 | --- | --- | --- | --- | --- |
-| img/hero.webp, img/hero-tall.webp | Pizza sul tagliere con vino e farina | Alessandro D'Antonio | Unsplash License | https://unsplash.com/photos/VeIEsUipvgQ |
+| img/hero-band.webp, img/hero-band-m.webp | Pizza con burrata e vino rosso sul tavolo | Alexander Pogorelsky | Unsplash License | https://unsplash.com/photos/P_6lrzsPtHE |
 | img/piatti/bettini.webp | Pizza con pomodorini e basilico | Inna Gurina | Unsplash License | https://unsplash.com/photos/JspLKUauwSI |
 | img/piatti/crudo.webp | Pizza con crudo e cipolla | Yulia Khlebnikova | Unsplash License | https://unsplash.com/photos/K3ayTRngbos |
 | img/piatti/risotto.webp | Risotto | Julien Pianetti | Unsplash License | https://unsplash.com/photos/qIPRTMulc-g |
@@ -15,6 +15,6 @@ Le foto dei piatti sono illustrative: vanno sostituite con foto vere dei piatti 
 | img/mart.webp | Ingresso del Mart | LapoLuchini | CC BY-SA 3.0 | https://commons.wikimedia.org/w/index.php?curid=3700789 |
 | img/sala.webp | La sala di El Raminel | El Raminel (foto pubblicata su visitrovereto.it) | Del locale: confermare l'uso | https://www.visitrovereto.it/en/taste/restaurants/el-raminel/ |
 
-Le foto dei piatti sono ritagliate in verticale (4:5) e mostrate in una cornice ad arco. Le immagini CC BY-SA ritagliate restano sotto la stessa licenza.
+Le foto dei piatti sono ritagliate in verticale (4:5) e mostrate a metà schermo accanto al testo. Le immagini CC BY-SA ritagliate restano sotto la stessa licenza.
 
 Il logo (`img/logo/`) è ricostruito dalla foto dell'insegna: il pentolino è vettorializzato dalla foto, la scritta è ridisegnata. Va confrontato con il file originale, se esiste.
