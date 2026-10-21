@@ -51,7 +51,6 @@
     bar.classList.toggle('is-hidden', !drawerOpen && y > innerHeight * 0.8 && y > lastY + 4);
     if (y < lastY - 4) bar.classList.remove('is-hidden');
     lastY = y;
-    turnPlates();
     ticking = false;
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
@@ -105,7 +104,6 @@
   if (picker) {
     const radios = [...picker.querySelectorAll('[role="radio"]')];
     const panels = [...document.querySelectorAll('[data-dough-panel]')];
-    const photo = document.querySelector('.doughs__photo');
     const choose = (btn, focus) => {
       radios.forEach((r) => { const on = r === btn; r.setAttribute('aria-checked', String(on)); r.tabIndex = on ? 0 : -1; });
       panels.forEach((p) => {
@@ -113,7 +111,6 @@
         p.hidden = !on;
         p.classList.toggle('is-entering', on);
       });
-      if (photo) { photo.classList.toggle('is-nudged'); }
       if (focus) btn.focus();
     };
     radios.forEach((r, i) => {
@@ -127,21 +124,6 @@
       });
     });
   }
-
-  // Plates turn a little as their field slides up: the pot's spiral, set in motion.
-  const turners = [...document.querySelectorAll('[data-turn]')];
-  function turnPlates() {
-    if (reduce.matches) return;
-    const vh = innerHeight;
-    for (const el of turners) {
-      const r = el.closest('.dish').getBoundingClientRect();
-      if (r.bottom < -vh || r.top > vh * 2) continue;
-      const p = Math.max(-1, Math.min(1.5, (vh - r.top) / vh - 1)); // -1 entering .. 0 settled
-      el.style.transform = `rotate(${(p * 38).toFixed(2)}deg) scale(${(1 + Math.min(0, p) * 0.08).toFixed(3)})`;
-    }
-  }
-  turnPlates();
-  addEventListener('resize', turnPlates);
 
   // Menu tabs
   const tablist = document.querySelector('[data-tabs]');
