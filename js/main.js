@@ -42,6 +42,8 @@
 
   // Bar: solid once the hero is behind, hides while reading down, returns on the way up.
   const bar = document.querySelector('[data-bar]');
+  const dock = document.querySelector('[data-dock]');
+  let bookInView = false;
   let lastY = scrollY;
   let ticking = false;
   const onScroll = () => {
@@ -50,6 +52,12 @@
     const drawerOpen = document.body.classList.contains('has-drawer');
     bar.classList.toggle('is-hidden', !drawerOpen && y > innerHeight * 0.8 && y > lastY + 4);
     if (y < lastY - 4) bar.classList.remove('is-hidden');
+    // the booking dock leaves while reading down and comes back on the way up
+    if (dock) {
+      if (y > lastY + 4) dock.classList.add('is-hidden');
+      else if (y < lastY - 4 || y < 40) dock.classList.remove('is-hidden');
+      if (bookInView) dock.classList.add('is-hidden');
+    }
     lastY = y;
     ticking = false;
   };
@@ -125,6 +133,27 @@
     });
   }
 
+  // Doughs band: closed until asked for
+  const doughs = document.querySelector('.doughs');
+  const dToggle = document.querySelector('[data-doughs-toggle]');
+  if (doughs && dToggle) {
+    const label = dToggle.querySelector('[data-toggle-label]');
+    const body = document.querySelector('[data-doughs-body]');
+    const setOpen = (open) => {
+      doughs.classList.toggle('is-open', open);
+      dToggle.setAttribute('aria-expanded', String(open));
+      label.textContent = open ? 'Chiudi' : 'Scopri gli impasti';
+      body.inert = !open;
+    };
+    setOpen(false);
+    dToggle.addEventListener('click', () => setOpen(!doughs.classList.contains('is-open')));
+    document.querySelectorAll('[data-open-dough]').forEach((b) => b.addEventListener('click', () => {
+      setOpen(true);
+      const r = document.querySelector('[data-dough="' + b.dataset.openDough + '"]');
+      if (r) r.click();
+    }));
+  }
+
   // Menu tabs
   const tablist = document.querySelector('[data-tabs]');
   if (tablist) {
@@ -157,18 +186,12 @@
   if (form) {
     const date = form.querySelector('#f-data');
     const msg = form.querySelector('[data-msg]');
-    const out = form.querySelector('#f-persone');
     const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
     const today = new Date();
     date.min = iso(today);
     const first = new Date(today);
     if (first.getDay() === 1) first.setDate(first.getDate() + 1);
     date.value = iso(first);
-    let people = 2;
-    form.querySelectorAll('[data-step]').forEach((b) => b.addEventListener('click', () => {
-      people = Math.max(1, Math.min(30, people + +b.dataset.step));
-      out.textContent = people;
-    }));
     const say = (text, warn) => { msg.textContent = text; msg.classList.toggle('is-warn', !!warn); };
     const parseDay = () => { const [y, m, d] = date.value.split('-').map(Number); return new Date(y, m - 1, d); };
     date.addEventListener('change', () => {
@@ -188,7 +211,8 @@
       if (day.getDay() === 1) return say('Il lunedì siamo chiusi: scegli un altro giorno.', true);
       const label = day.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
       const ora = form.ora.value;
-      const who = people === 1 ? '1 persona' : `${people} persone`;
+      const p = form.persone.value;
+      const who = p === '1' ? '1 persona' : p === '13+' ? 'più di 12 persone' : p + ' persone';
       const subject = `Prenotazione: ${label}, ${ora}, ${who}`;
       const body = [
         'Buongiorno,',
@@ -203,5 +227,27 @@
       location.href = `mailto:larosa15@outlook.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       say('Si è aperta la tua email con la richiesta pronta: inviala e ti richiamiamo per confermare. Per oggi stesso è meglio telefonare.');
     });
+
+    // the dock carries its three choices into the form
+    if (dock) {
+      const dDate = dock.querySelector('[data-dock-date]');
+      dDate.min = date.min;
+      dDate.value = date.value;
+      dock.addEventListener('submit', (e) => {
+        e.preventDefault();
+        date.value = dDate.value || date.value;
+        form.ora.value = dock.ora.value;
+        form.persone.value = dock.persone.value;
+        date.dispatchEvent(new Event('change'));
+        document.querySelector('#prenota').scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth' });
+        setTimeout(() => form.nome.focus({ preventScroll: true }), reduce.matches ? 0 : 700);
+      });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((en) => {
+          bookInView = en.some((x) => x.isIntersecting);
+          dock.classList.toggle('is-hidden', bookInView);
+        }, { rootMargin: '0px 0px -20% 0px' }).observe(document.querySelector('#prenota'));
+      }
+    }
   }
 })();

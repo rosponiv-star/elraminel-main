@@ -41,7 +41,6 @@
   </a>
   <div class="bar__end">
     <a class="bar__tel" href="tel:+390464010521">0464 010521</a>
-    <a class="button button--small" href="#prenota">Prenota</a>
     <button class="bar__toggle" type="button" aria-expanded="false" aria-controls="drawer" data-toggle><span>Menu</span></button>
   </div>
 </header>
@@ -67,11 +66,7 @@
     </h1>
     <div class="hero__row">
       <p class="hero__lead">Pizza in quattro impasti e cucina di casa, in Corso Bettini a cinque minuti dal Mart.</p>
-      <div class="hero__act">
-        <a class="button" href="#prenota">Prenota un tavolo <span class="button__arrow" aria-hidden="true">→</span></a>
-        <a class="link" href="#menu">Sfoglia il menu</a>
-        <p class="status" data-status><span class="status__dot" aria-hidden="true"></span><span data-status-text>Martedì–domenica, 7:30–14:30 e 18:00–23:00</span></p>
-      </div>
+      <p class="status" data-status><span class="status__dot" aria-hidden="true"></span><span data-status-text>Martedì–domenica, 7:30–14:30 e 18:00–23:00</span></p>
     </div>
     <figure class="hero__band">
       <picture>
@@ -87,12 +82,14 @@
       <h2 id="intro-title" class="h-display" data-reveal>Dal 2018 in <em>Corso Bettini</em></h2>
       <p class="intro__note" data-reveal style="--d:90ms">Raminel, in dialetto, è il pentolino di rame. Lo trovi disegnato sull'insegna e appeso sopra il bancone. Dentro ci mettiamo una cucina di casa e una pizza che cambia impasto.</p>
     </div>
-    <dl class="facts">
-      <div data-reveal><dt>4 impasti</dt><dd>Dal classico all'erba di grano</dd></div>
-      <div data-reveal style="--d:70ms"><dt>60 coperti</dt><dd>In una sala sola, più il bancone</dd></div>
-      <div data-reveal style="--d:140ms"><dt>5 minuti</dt><dd>A piedi dal Mart</dd></div>
-      <div data-reveal style="--d:210ms"><dt>Dalle 7:30</dt><dd>Colazione, pranzo, aperitivo e cena</dd></div>
-    </dl>
+    <div class="facts">
+      <p class="facts__lead" data-reveal><strong>4</strong><span>impasti diversi, dal classico all'erba di grano: li trovi qui sotto.</span></p>
+      <dl class="facts__list">
+        <div data-reveal style="--d:70ms"><dt>60 coperti</dt><dd>In una sala sola, più il bancone</dd></div>
+        <div data-reveal style="--d:140ms"><dt>5 minuti</dt><dd>A piedi dal Mart, lungo il corso</dd></div>
+        <div data-reveal style="--d:210ms"><dt>Dalle 7:30</dt><dd>Colazione, pranzo, aperitivo e cena</dd></div>
+      </dl>
+    </div>
     <div class="intro__room">
       <div class="intro__roomtext" data-reveal>
         <h3 class="h-small">La sala</h3>
@@ -107,49 +104,63 @@
 
   <!-- Live thing: choose the dough -->
   <section class="doughs" id="impasti" aria-labelledby="impasti-title">
-    <div class="doughs__grid">
-      <div class="doughs__head">
-        <h2 id="impasti-title" class="h-display" data-reveal>Scegli l'<em>impasto</em></h2>
-        <p class="lead" data-reveal style="--d:90ms">Ogni pizza del menu si può fare con uno dei quattro. Tocca un impasto per vedere com'è fatto.</p>
+    <div class="doughs__bar">
+      <div class="doughs__title">
+        <h2 id="impasti-title" class="h-head">Scegli l'<em>impasto</em></h2>
+        <ul class="doughs__names" aria-label="I quattro impasti">
+          <li><button type="button" data-open-dough="classico">Classico</button></li>
+          <li><button type="button" data-open-dough="madre">Lievito madre</button></li>
+          <li><button type="button" data-open-dough="integrale">Integrale</button></li>
+          <li><button type="button" data-open-dough="semi">Semi ed erba di grano</button></li>
+        </ul>
       </div>
+      <button class="doughs__toggle" type="button" aria-expanded="false" aria-controls="doughs-body" data-doughs-toggle>
+        <span data-toggle-label>Scopri gli impasti</span><span class="doughs__plus" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="doughs__body" id="doughs-body" data-doughs-body>
+      <div class="doughs__clip">
+        <div class="doughs__grid">
+          <p class="doughs__intro">Ogni pizza del menu si può fare con uno dei quattro. Scegline uno per vedere com'è fatto.</p>
+          <div class="doughs__picker" role="radiogroup" aria-label="Impasto" data-dough-picker>
+            <button type="button" role="radio" aria-checked="true" data-dough="classico"><span>Classico</span><span class="doughs__delta">compreso</span></button>
+            <button type="button" role="radio" aria-checked="false" data-dough="madre"><span>Lievito madre</span><span class="doughs__delta">+1,50 €</span></button>
+            <button type="button" role="radio" aria-checked="false" data-dough="integrale"><span>Integrale</span><span class="doughs__delta">+1,50 €</span></button>
+            <button type="button" role="radio" aria-checked="false" data-dough="semi"><span>Semi ed erba di grano</span><span class="doughs__delta">+2,00 €</span></button>
+          </div>
 
-      <div class="doughs__picker" role="radiogroup" aria-label="Impasto" data-dough-picker>
-        <button type="button" role="radio" aria-checked="true" data-dough="classico"><span>Classico</span><span class="doughs__delta">compreso</span></button>
-        <button type="button" role="radio" aria-checked="false" data-dough="madre"><span>Lievito madre</span><span class="doughs__delta">+1,50 €</span></button>
-        <button type="button" role="radio" aria-checked="false" data-dough="integrale"><span>Integrale</span><span class="doughs__delta">+1,50 €</span></button>
-        <button type="button" role="radio" aria-checked="false" data-dough="semi"><span>Semi ed erba di grano</span><span class="doughs__delta">+2,00 €</span></button>
+          <div class="doughs__card" aria-live="polite">
+            <article class="dough" data-dough-panel="classico">
+              <p class="dough__hours"><strong>24</strong> ore</p>
+              <p class="dough__sub">di maturazione in frigo</p>
+              <p>Farine di tipo 0 e 1, poco lievito, tanto tempo. Bordo leggero e croccante, centro morbido. Quello che chiede chi vuole la pizza come se la ricorda.</p>
+            </article>
+            <article class="dough" data-dough-panel="madre" hidden>
+              <p class="dough__hours"><strong>36</strong> ore</p>
+              <p class="dough__sub">con lievito madre rinfrescato ogni mattina</p>
+              <p>Più profumo e una punta acidula, alveoli grandi, cornicione che si strappa. Lunga lievitazione: si digerisce bene anche a cena tardi.</p>
+            </article>
+            <article class="dough" data-dough-panel="integrale" hidden>
+              <p class="dough__hours"><strong>24</strong> ore</p>
+              <p class="dough__sub">con farina integrale macinata a pietra</p>
+              <p>Il colore del grano intero e un sapore più pieno, quasi di pane. Crosta rustica, più fibre. Sta bene con verdure e formaggi di malga.</p>
+            </article>
+            <article class="dough" data-dough-panel="semi" hidden>
+              <p class="dough__hours"><strong>30</strong> ore</p>
+              <p class="dough__sub">con semi di lino, girasole e sesamo</p>
+              <p>Un impasto che non trovi ovunque: semi tostati ed erba di grano nella farina. Croccante, nocciolato, di un verde dorato appena accennato.</p>
+            </article>
+          </div>
+
+          <figure class="doughs__photo">
+            <img src="img/impasto.webp" width="1000" height="1300" loading="lazy" alt="Due mani infarinate tengono un panetto di impasto liscio">
+          </figure>
+        </div>
       </div>
-
-      <div class="doughs__card" aria-live="polite">
-        <article class="dough" data-dough-panel="classico">
-          <p class="dough__hours"><strong>24</strong> ore</p>
-          <p class="dough__sub">di maturazione in frigo</p>
-          <p>Farine di tipo 0 e 1, poco lievito, tanto tempo. Bordo leggero e croccante, centro morbido. Quello che chiede chi vuole la pizza come se la ricorda.</p>
-        </article>
-        <article class="dough" data-dough-panel="madre" hidden>
-          <p class="dough__hours"><strong>36</strong> ore</p>
-          <p class="dough__sub">con lievito madre rinfrescato ogni mattina</p>
-          <p>Più profumo e una punta acidula, alveoli grandi, cornicione che si strappa. Lunga lievitazione: si digerisce bene anche a cena tardi.</p>
-        </article>
-        <article class="dough" data-dough-panel="integrale" hidden>
-          <p class="dough__hours"><strong>24</strong> ore</p>
-          <p class="dough__sub">con farina integrale macinata a pietra</p>
-          <p>Il colore del grano intero e un sapore più pieno, quasi di pane. Crosta rustica, più fibre. Sta bene con verdure e formaggi di malga.</p>
-        </article>
-        <article class="dough" data-dough-panel="semi" hidden>
-          <p class="dough__hours"><strong>30</strong> ore</p>
-          <p class="dough__sub">con semi di lino, girasole e sesamo</p>
-          <p>Un impasto che non trovi ovunque: semi tostati ed erba di grano nella farina. Croccante, nocciolato, di un verde dorato appena accennato.</p>
-        </article>
-      </div>
-
-      <figure class="doughs__photo">
-        <img src="img/impasto.webp" width="1000" height="1300" loading="lazy" alt="Due mani infarinate tengono un panetto di impasto liscio">
-      </figure>
     </div>
   </section>
 
-  <!-- Dishes: each on its own field, the photo in an arch -->
+  <!-- Dishes: the plate on its own field of colour -->
   <section class="dishes" id="piatti" aria-labelledby="piatti-title">
     <div class="dishes__intro">
       <h2 id="piatti-title" class="h-display" data-reveal>Dal forno e dalla <em>cucina</em></h2>
@@ -164,7 +175,7 @@
           <p class="dish__price">11,00 €</p>
         </div>
       </div>
-      <figure class="dish__photo"><img src="img/piatti/bettini.webp" width="1000" height="1250" loading="lazy" alt="Pizza con pomodorini, fior di latte e foglie di basilico, vista dall'alto su un piano scuro infarinato"></figure>
+      <figure class="dish__plate"><img src="img/piatti/bettini.webp" width="1100" height="1100" loading="lazy" alt="Pizza con pomodorini, fior di latte e foglie di basilico, vista dall'alto su un piano scuro infarinato"></figure>
     </article>
 
     <article class="dish dish--flip" style="--field:var(--sage);--field-ink:var(--ink);--field-soft:#2f3a33">
@@ -175,7 +186,7 @@
           <p class="dish__price">11,50 €</p>
         </div>
       </div>
-      <figure class="dish__photo"><img src="img/piatti/crudo.webp" width="1000" height="1250" loading="lazy" alt="Pizza con prosciutto crudo, mozzarella e cipolla rossa nel piatto in ceramica"></figure>
+      <figure class="dish__plate"><img src="img/piatti/crudo.webp" width="1100" height="1100" loading="lazy" alt="Pizza con prosciutto crudo, mozzarella e cipolla rossa nel piatto in ceramica"></figure>
     </article>
 
     <article class="dish" style="--field:var(--stone);--field-ink:var(--ink);--field-soft:#3d463f">
@@ -186,7 +197,7 @@
           <p class="dish__price">13,00 €</p>
         </div>
       </div>
-      <figure class="dish__photo"><img src="img/piatti/risotto.webp" width="1000" height="1250" loading="lazy" alt="Risotto bianco con erba cipollina in un piatto fondo bianco"></figure>
+      <figure class="dish__plate"><img src="img/piatti/risotto.webp" width="1100" height="1100" loading="lazy" alt="Risotto bianco con erba cipollina in un piatto fondo bianco"></figure>
     </article>
 
     <article class="dish dish--flip" style="--field:var(--paper-2);--field-ink:var(--ink);--field-soft:#3d463f">
@@ -197,7 +208,7 @@
           <p class="dish__price">18,00 €</p>
         </div>
       </div>
-      <figure class="dish__photo"><img src="img/piatti/salmone.webp" width="1000" height="1250" loading="lazy" alt="Filetto di salmone scottato su spinaci e pomodorini in salsa cremosa"></figure>
+      <figure class="dish__plate"><img src="img/piatti/salmone.webp" width="1100" height="1100" loading="lazy" alt="Filetto di salmone scottato su spinaci e pomodorini in salsa cremosa"></figure>
     </article>
 
     <article class="dish" style="--field:var(--copper-field);--field-ink:var(--paper);--field-soft:#ead9cc">
@@ -208,15 +219,18 @@
           <p class="dish__price">6,00 €</p>
         </div>
       </div>
-      <figure class="dish__photo"><img src="img/piatti/panna-cotta.webp" width="1000" height="1250" loading="lazy" alt="Panna cotta con frutti di bosco in una ciotola turchese"></figure>
+      <figure class="dish__plate"><img src="img/piatti/panna-cotta.webp" width="1100" height="1100" loading="lazy" alt="Panna cotta con frutti di bosco in una ciotola turchese"></figure>
     </article>
   </section>
 
-  <!-- Menu: a paper sheet with folder tabs -->
+  <!-- Menu: a paper sheet, sections as titles -->
   <section class="menu" id="menu" aria-labelledby="menu-title">
     <div class="menu__head">
       <h2 id="menu-title" class="h-display" data-reveal>Il <em>menu</em></h2>
-      <p class="lead" data-reveal style="--d:90ms">Pizze, cucina, colazione e cantina. Tutte le pizze si possono fare con uno dei quattro impasti; quella senza glutine si chiede in sala.</p>
+      <div class="menu__side" data-reveal style="--d:90ms">
+        <p class="lead">Pizze, cucina, colazione e cantina. Tutte le pizze si possono fare con uno dei quattro impasti.</p>
+        <a class="button button--light" href="menu/menu-el-raminel.pdf" download>Scarica il menu in PDF <span class="button__arrow" aria-hidden="true">↓</span></a>
+      </div>
     </div>
 
     <div class="sheet" data-reveal>
@@ -331,116 +345,85 @@
           </div>
         </div>
 
-        <p class="sheet__note">Prezzi in euro. Impasto senza glutine su richiesta. Per allergie e intolleranze chiedi a chi ti serve: ti diciamo cosa c'è in ogni piatto.</p>
+        <div class="notes">
+          <div><h4>Senza glutine</h4><p>L'impasto senza glutine si chiede in sala, per tutte le pizze.</p></div>
+          <div><h4>Allergeni</h4><p>Chiedi a chi ti serve: ti diciamo cosa c'è in ogni piatto.</p></div>
+          <div><h4>Prezzi</h4><p>In euro. Il supplemento per l'impasto è indicato negli impasti.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Booking -->
   <section class="book" id="prenota" aria-labelledby="prenota-title">
-    <div class="book__info">
-      <h2 id="prenota-title" class="h-display">Prenota un <em>tavolo</em></h2>
-      <p class="lead">Il modo più veloce è chiamarci. Per un altro giorno puoi anche lasciarci una richiesta qui accanto: ti confermiamo il tavolo per telefono.</p>
-      <a class="book__tel" href="tel:+390464010521">0464 010521</a>
-      <table class="hours">
-        <caption class="h-small">Orari</caption>
-        <tbody>
-          <tr><th scope="row">Martedì–domenica</th><td>7:30–14:30</td></tr>
-          <tr><th scope="row"></th><td>18:00–23:00</td></tr>
-          <tr><th scope="row">Lunedì</th><td>Chiuso</td></tr>
-        </tbody>
-      </table>
+    <div class="book__head">
+      <h2 id="prenota-title" class="h-head" data-reveal>Prenota un <em>tavolo</em></h2>
+      <p class="book__lead" data-reveal style="--d:90ms">Lasciaci una richiesta e ti richiamiamo per confermare. Per la sera stessa è meglio telefonare.</p>
     </div>
-
-    <form class="book__form" data-book novalidate>
-      <h3 class="h-small">Richiesta di prenotazione</h3>
-      <div class="field">
-        <label for="f-nome">Nome</label>
-        <input id="f-nome" name="nome" autocomplete="name" required>
-      </div>
-      <div class="field">
-        <label for="f-tel">Telefono</label>
-        <input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="f-data">Giorno</label>
-          <input id="f-data" name="data" type="date" required>
+    <div class="book__grid">
+      <form class="book__form" data-book novalidate>
+        <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" autocomplete="name" required></div>
+        <div class="field"><label for="f-tel">Telefono</label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        <div class="field"><label for="f-data">Giorno</label><input id="f-data" name="data" type="date" required></div>
+        <div class="field"><label for="f-ora">Ora</label><select id="f-ora" name="ora" required><optgroup label="Pranzo"><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option></optgroup><optgroup label="Cena"><option>19:00</option><option>19:30</option><option selected>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option></optgroup></select></div>
+        <div class="field"><label for="f-persone">Persone</label><select id="f-persone" name="persone"><option value="1">1 persona</option><option selected value="2">2 persone</option><option value="3">3 persone</option><option value="4">4 persone</option><option value="5">5 persone</option><option value="6">6 persone</option><option value="7">7 persone</option><option value="8">8 persone</option><option value="9">9 persone</option><option value="10">10 persone</option><option value="11">11 persone</option><option value="12">12 persone</option><option value="13+">Più di 12</option></select></div>
+        <div class="field"><label for="f-note">Note</label><input id="f-note" name="note" placeholder="Un seggiolone, un'allergia, un compleanno"></div>
+        <div class="book__send">
+          <p class="book__msg" data-msg role="status"></p>
+          <button class="button" type="submit">Invia la richiesta <span class="button__arrow" aria-hidden="true">→</span></button>
         </div>
-        <div class="field">
-          <label for="f-ora">Ora</label>
-          <select id="f-ora" name="ora" required>
-            <optgroup label="Pranzo">
-              <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option>
-            </optgroup>
-            <optgroup label="Cena">
-              <option>19:00</option><option>19:30</option><option selected>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option>
-            </optgroup>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <span class="label" id="l-persone">Persone</span>
-        <div class="stepper" role="group" aria-labelledby="l-persone">
-          <button type="button" aria-label="Una persona in meno" data-step="-1">–</button>
-          <output id="f-persone" aria-live="polite">2</output>
-          <button type="button" aria-label="Una persona in più" data-step="1">+</button>
-        </div>
-      </div>
-      <div class="field">
-        <label for="f-note">Note</label>
-        <textarea id="f-note" name="note" rows="2" placeholder="Un seggiolone, un'allergia, un compleanno"></textarea>
-      </div>
-      <p class="book__msg" data-msg role="status"></p>
-      <button class="button button--wide" type="submit">Invia la richiesta <span class="button__arrow" aria-hidden="true">→</span></button>
-    </form>
+      </form>
+      <aside class="book__aside">
+        <div><h3 class="label">Telefono</h3><a class="book__tel" href="tel:+390464010521">0464 010521</a></div>
+        <div><h3 class="label">Orari</h3><p>Martedì–domenica<br>7:30–14:30 e 18:00–23:00<br>Lunedì chiuso</p></div>
+        <div><h3 class="label">Email</h3><p><a href="mailto:larosa15@outlook.it">larosa15@outlook.it</a></p></div>
+      </aside>
+    </div>
   </section>
 
   <!-- Where -->
   <section class="where" id="dove" aria-labelledby="dove-title">
-    <figure class="where__photo">
-      <img src="img/corso-bettini-12.webp" width="1600" height="1200" alt="Corso Bettini a Rovereto: Palazzo Fedrigotti e la strada verso le montagne">
-    </figure>
-    <div class="where__card" data-reveal>
-      <h2 id="dove-title" class="where__title">Dove <em>siamo</em></h2>
-      <p class="where__addr">Corso Bettini 15/A<br>38068 Rovereto (TN)</p>
-      <p>Nel centro storico, sulla via dei palazzi. Il Mart è in fondo al corso, cinque minuti a piedi.</p>
-      <div class="where__links">
+    <div class="where__text">
+      <h2 id="dove-title" class="h-head" data-reveal>Dove <em>siamo</em></h2>
+      <p class="where__addr" data-reveal style="--d:90ms">Corso Bettini 15/A<br>38068 Rovereto (TN)</p>
+      <p data-reveal style="--d:140ms">Nel centro storico, sulla via dei palazzi. Il Mart è in fondo al corso, cinque minuti a piedi.</p>
+      <div class="where__links" data-reveal style="--d:200ms">
         <a class="button" href="https://www.google.com/maps/search/?api=1&query=El+Raminel+Corso+Bettini+15A+Rovereto" target="_blank" rel="noopener">Indicazioni <span class="button__arrow" aria-hidden="true">→</span></a>
         <a class="link" href="tel:+390464010521">Chiama 0464 010521</a>
       </div>
     </div>
-    <figure class="where__mart">
-      <img src="img/mart.webp" width="1400" height="1050" alt="La piazza d'ingresso del Mart, il museo di arte moderna e contemporanea di Rovereto">
-      <figcaption>Il Mart, cinque minuti a piedi lungo il corso.</figcaption>
+    <figure class="where__photo">
+      <img src="img/corso-bettini-12.webp" width="1600" height="1200" loading="lazy" alt="Corso Bettini a Rovereto: Palazzo Fedrigotti e la strada verso le montagne">
     </figure>
   </section>
 
 </main>
 
 <footer class="foot">
-  <div class="foot__inner">
-    <div class="foot__msg">
-      <h2 class="h-head">A presto in <em>Corso Bettini</em></h2>
-      <p>Dal martedì alla domenica, dal primo caffè all'ultima pizza. Il lunedì riposiamo.</p>
+  <div class="foot__top">
+    <svg class="stamp" viewBox="0 0 200 200" aria-hidden="true">
+      <defs><path id="ring" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0"/></defs>
+      <text><textPath href="#ring" textLength="486">Ristorante · Pizzeria · Rovereto · Dal 2018 ·</textPath></text>
+      <use href="#pot" x="58" y="72" width="84" height="56"/>
+    </svg>
+    <div class="foot__cols">
+      <div><h3 class="label">Dove</h3><p><a href="https://www.google.com/maps/search/?api=1&query=El+Raminel+Corso+Bettini+15A+Rovereto" target="_blank" rel="noopener">Corso Bettini 15/A<br>38068 Rovereto (TN)</a></p></div>
+      <div><h3 class="label">Contatti</h3><p><a href="tel:+390464010521">0464 010521</a><br><a href="mailto:larosa15@outlook.it">larosa15@outlook.it</a></p></div>
+      <div><h3 class="label">Orari</h3><p>Martedì–domenica<br>7:30–14:30, 18:00–23:00</p></div>
+      <div><h3 class="label">Seguici</h3><p><a href="https://www.facebook.com/El-Raminel-ristorante-pizzeria-946641625516886/" target="_blank" rel="noopener">Facebook</a></p></div>
     </div>
-    <ul class="foot__lines">
-      <li><a href="https://www.google.com/maps/search/?api=1&query=El+Raminel+Corso+Bettini+15A+Rovereto" target="_blank" rel="noopener">Corso Bettini 15/A, Rovereto</a></li>
-      <li><a href="tel:+390464010521">0464 010521</a></li>
-      <li><a href="mailto:larosa15@outlook.it">larosa15@outlook.it</a></li>
-      <li><a href="https://www.facebook.com/El-Raminel-ristorante-pizzeria-946641625516886/" target="_blank" rel="noopener">Facebook</a></li>
-    </ul>
-    <div class="foot__mark">
-      <svg class="stamp" viewBox="0 0 200 200" aria-hidden="true">
-        <defs><path id="ring" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0"/></defs>
-        <text><textPath href="#ring" textLength="486">Ristorante · Pizzeria · Rovereto · Dal 2018 ·</textPath></text>
-        <use href="#pot" x="58" y="72" width="84" height="56"/>
-      </svg>
-      <p class="foot__name" aria-hidden="true">El Raminel</p>
-    </div>
-    <p class="foot__credits">Foto di piatti, impasto e copertina da Unsplash: Alexander Pogorelsky, Inna Gurina, Yulia Khlebnikova, Julien Pianetti, Jennifer Burk, Alexey Khaneft, Arturrro. Corso Bettini: Lungoleno, CC BY-SA 4.0. Mart: LapoLuchini, CC BY-SA 3.0, via Wikimedia Commons.</p>
   </div>
+  <p class="foot__name" aria-hidden="true">El Raminel</p>
+  <p class="foot__credits">Foto dei piatti generate con Higgsfield Soul 2.0, a scopo illustrativo. Copertina e impasto da Unsplash: Alexander Pogorelsky, Arturrro. Corso Bettini: Lungoleno, CC BY-SA 4.0, via Wikimedia Commons.</p>
 </footer>
+
+<form class="dock" data-dock aria-label="Prenota un tavolo">
+  <label class="dock__field"><span>Giorno</span><input type="date" name="data" data-dock-date></label>
+  <label class="dock__field"><span>Ora</span><select name="ora"><optgroup label="Pranzo"><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option></optgroup><optgroup label="Cena"><option>19:00</option><option>19:30</option><option selected>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option></optgroup></select></label>
+  <label class="dock__field"><span>Persone</span><select name="persone"><option value="1">1 persona</option><option selected value="2">2 persone</option><option value="3">3 persone</option><option value="4">4 persone</option><option value="5">5 persone</option><option value="6">6 persone</option><option value="7">7 persone</option><option value="8">8 persone</option><option value="9">9 persone</option><option value="10">10 persone</option><option value="11">11 persone</option><option value="12">12 persone</option><option value="13+">Più di 12</option></select></label>
+  <button class="dock__go" type="submit">Prenota un tavolo</button>
+  <a class="dock__call" href="tel:+390464010521">Chiama</a>
+</form>
 
 <script src="js/main.js" defer></script>
 </body>
